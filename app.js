@@ -161,4 +161,40 @@ app.post('/students/delete/:id', (req, res) => {
   });
 });
 
+// Render Edit Form
+app.get('/students/edit/:id', (req, res) => {
+  const studentId = req.params.id;
+  const sql = 'SELECT * FROM students WHERE id = ?';
+  
+  db.query(sql, [studentId], (err, results) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Database error');
+      }
+      if (results.length === 0) {
+          return res.status(404).send('Student not found');
+      }
+      res.render('edit', { student: results[0] });
+  });
+});
+
+
+app.post('/students/edit/:id', (req, res) => {
+  const studentId = req.params.id;
+  const { student_id, first_name, last_name, course, year_level, email } = req.body;
+  
+  const sql = `
+      UPDATE students 
+      SET student_id = ?, first_name = ?, last_name = ?, course = ?, year_level = ?, email = ? 
+      WHERE id = ?
+  `;
+  
+  db.query(sql, [student_id, first_name, last_name, course, year_level, email, studentId], (err, result) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Database error');
+      }
+      res.redirect('/');
+  });
+});
 
