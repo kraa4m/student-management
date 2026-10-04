@@ -2,37 +2,61 @@
 <html>
 <head>
   <title>Add Student</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-  <h1>Add Student</h1>
+  <header>
+    <h1>Student Management System</h1>
+    <nav>
+      <a href="/">Student List</a>
+      <a href="/students/add">Add Student</a>
+    </nav>
+  </header>
 
-  <form action="/students/add" method="POST">
+  <div class="container">
+    <div class="form-card">
+      <h2>Add Student</h2>
+      <br>
+      <form action="/students/add" method="POST">
 
-    <label>Student ID:</label><br>
-    <input type="text" name="student_id" required><br><br>
+        <div class="form-group">
+          <label>Student ID:</label>
+          <input type="text" name="student_id" required>
+        </div>
 
-    <label>First Name:</label><br>
-    <input type="text" name="first_name" required><br><br>
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" name="first_name" required>
+        </div>
 
-    <label>Last Name:</label><br>
-    <input type="text" name="last_name" required><br><br>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" name="last_name" required>
+        </div>
 
-    <label>Course:</label><br>
-    <input type="text" name="course" required><br><br>
+        <div class="form-group">
+          <label>Course:</label>
+          <input type="text" name="course" required>
+        </div>
 
-    <label>Year Level:</label><br>
-    <input type="number" name="year_level" min="1" max="5" required><br><br>
+        <div class="form-group">
+          <label>Year Level:</label>
+          <input type="number" name="year_level" min="1" max="5" required>
+        </div>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" name="email" required>
+        </div>
 
-    <button type="submit">Save Student</button>
+        <button type="submit" style="width: 100%;">Save Student</button>
 
-  </form>
-
-  <br>
-  <a href="/">Back to Student List</a>
+      </form>
+      <br>
+      <a href="/" style="display: block; text-align: center; color: var(--primary-blue);">Back to Student List</a>
+    </div>
+  </div>
 
 </body>
 </html>

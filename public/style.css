@@ -1,0 +1,182 @@
+/* Base Styles & Blue/Gray Color Palette */
+:root {
+    --primary-blue: #1d4ed8;
+    --hover-blue: #1e40af;
+    --bg-gray: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-dark: #1f2937;
+    --border-color: #e5e7eb;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  body {
+    background-color: var(--bg-gray);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  
+  /* Header & Navigation */
+  header {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav {
+    margin-top: 0.5rem;
+  }
+  
+  nav a {
+    color: #dbeafe;
+    text-decoration: none;
+    margin-right: 1.2rem;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    color: white;
+  }
+  
+  /* Main Layout Container */
+  .container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  /* Action Bar (Search & Add Button) */
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  .search-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  /* Buttons and Inputs */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"] {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    outline: none;
+  }
+  
+  input:focus {
+    border-color: var(--primary-blue);
+  }
+  
+  button, .btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 0.55rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  button:hover, .btn:hover {
+    background-color: var(--hover-blue);
+  }
+  
+  /* Student Table */
+  .table-wrapper {
+    overflow-x: auto;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  th {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+  }
+  
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  tr:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* Forms (Add Student Page) */
+  .form-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    width: 100%;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .toolbar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .search-form {
+      width: 100%;
+    }
+  
+    .search-form input {
+      flex: 1;
+    }
+  }

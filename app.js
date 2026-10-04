@@ -1,15 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
+const path = require('path');
 
 const app = express();
 
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root', 
-  port: 8889,       
-  database: 'student_management'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
 
 db.connect((err) => {
@@ -145,3 +147,18 @@ app.post('/students/add', (req, res) => {
       res.redirect('/');
     });
   });
+
+app.post('/students/delete/:id', (req, res) => {
+  const studentId = req.params.id;
+  const sql = 'DELETE FROM students WHERE id = ?';
+
+  db.query(sql, [studentId], (err, result) => {
+    if (err) {
+      console.error('Error deleting student:', err);
+      return res.status(500).send('Database error');
+    }
+    res.redirect('/');
+  });
+});
+
+
